@@ -26,6 +26,12 @@ export default function transform(text, transforms, options = {}) {
 		return node;
 	}
 
-	return transform(cheerio.load(text, options)).html();
+	const transformed = transform(cheerio.load(text, options));
+
+	if(options.returnSerialised !== false) {
+		return transformed.html();
+	}
+
+	return transformed;
 };
 
