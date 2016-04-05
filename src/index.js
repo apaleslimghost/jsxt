@@ -4,16 +4,15 @@ import jsxCheerio, {cheerioRoot} from '@quarterto/jsx-cheerio';
 
 export function match(selector, replacer) {
 	return ($, transform) => {
-		$(selector).forEach(matched => {
+		$(selector).each((i,matched) => {
 			const matched$ = $(matched);
 			const replacement = cheerioRoot(replacer({
 				node: matched$,
 				select: matched$.find.bind(matched$),
 				apply: () => transform(matched$.children())
 			}));
-
 			matched$.replaceWith(replacement);
-		})
+		});
 	};
 }
 
