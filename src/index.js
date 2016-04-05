@@ -13,6 +13,8 @@ export function match(selector, replacer) {
 			}));
 			matched$.replaceWith(replacement);
 		});
+
+		return $;
 	};
 }
 
@@ -21,8 +23,9 @@ export const element = jsxCheerio;
 export default function transform(text, transforms, options = {}) {
 	function transform(node) {
 		forEach(transforms, t => t(node, transform));
+		return node;
 	}
 
-	return transform(cheerio.load(text, options))
+	return transform(cheerio.load(text, options)).html();
 };
 
