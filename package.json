@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/quarterto/jsxt#readme",
   "dependencies": {
-    "@quarterto/jsx-cheerio": "^1.3.0",
+    "@quarterto/jsx-cheerio": "^1.4.0",
     "cheerio": "^0.20.0",
     "lodash.foreach": "^4.2.0"
   },
